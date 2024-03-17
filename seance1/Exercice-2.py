@@ -18,21 +18,21 @@ def search_longer_word(selection):
 
     
 #Parcourt la liste de mots et cree une liste ,pour chaque mot, contenant ses lettres
-    for i in range(len(words)):
-        word = list(words[i])
+    for word_index in range(len(words)):
+        word = list(words[word_index])
 #Parcourt la selection de lettres donnee
-        for j in range(len(selection)):
-            if selection[j] in word:
-                word.remove(selection[j])
+        for selection_index in range(len(selection)):
+            if selection[selection_index] in word:
+                word.remove(selection[selection_index])
 #On supprime la lettre pour être sur de ne eviter les doubles
         if len(word)==0:
 #potential_solutions recense les mots du dictionnaires que l'on peut ecrire avec les lettres de la selection
-            potential_solutions.append(words[i])
+            potential_solutions.append(words[word_index])
 #Boucle pour trouver le mot le plus long parmi les solutions proposees
     solution = potential_solutions[0]
-    for k in range(len(potential_solutions)):
-        if len(potential_solutions[k]) > len(solution):
-            solution = potential_solutions[k]
+    for potential_index in range(len(potential_solutions)):
+        if len(potential_solutions[potential_index]) > len(solution):
+            solution = potential_solutions[potential_index]
     print('the longer word in dictionay with the letter selection is : ', solution)
     return None
     

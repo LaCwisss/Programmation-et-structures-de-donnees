@@ -10,19 +10,19 @@ def search_longer_word(selection):
         words.append(lign[0:len(lign)-1])
     dictionary.close()
 
-    for i in range(len(words)):
-        word = list(words[i])
+    for word_index in range(len(words)):
+        word = list(words[word_index])
 #joker compte differencie les mots avec ou sans '?'
         joker=0
-        for j in range(len(selection)):
-            if selection[j] in word:
-                word.remove(selection[j])
+        for selection_index in range(len(selection)):
+            if selection[selection_index] in word:
+                word.remove(selection[selection_index])
         if len(word) == 1:
             if '?' in selection:
                 joker=word[0]
-                potential_solutions.append((words[i],joker))
+                potential_solutions.append((words[word_index],joker))
         if len(word)==0:
-            potential_solutions.append((words[i],joker))
+            potential_solutions.append((words[word_index],joker))
 #on retourne une liste tuple (mot,joker) avec joker = 0 (pas de '?') ou la lettre remplacee par '?'
     return potential_solutions
 
@@ -46,10 +46,10 @@ def max_score(potential_solutions):
     list_scores = score(potential_solutions)
     maximum = list_scores[0]
     word_max = potential_solutions[0][0]
-    for i in range(len(list_scores)):
-        if maximum < list_scores[i]:
-            maximum = list_scores[i]
-            word_max = potential_solutions[i][0]
+    for score_index in range(len(list_scores)):
+        if maximum < list_scores[score_index]:
+            maximum = list_scores[score_index]
+            word_max = potential_solutions[score_index][0]
     return word_max, maximum
 
 

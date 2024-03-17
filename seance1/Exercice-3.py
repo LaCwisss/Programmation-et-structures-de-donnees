@@ -9,13 +9,13 @@ def search_longer_word(selection):
     for lign in dictionary:
         words.append(lign[0:len(lign)-1])
     dictionary.close()
-    for i in range(len(words)):
-        word = list(words[i])
-        for j in range(len(selection)):
-            if selection[j] in word:
-                word.remove(selection[j])
+    for word_index in range(len(words)):
+        word = list(words[word_index])
+        for selection_index in range(len(selection)):
+            if selection[selection_index] in word:
+                word.remove(selection[selection_index])
         if len(word)==0:
-            potential_solutions.append(words[i])     
+            potential_solutions.append(words[word_index])     
     return potential_solutions
 
 value_letters = {'a': 1, 'e': 1, 'i': 1, 'l': 1, 'n': 1, 'o': 1, 'r': 1, 's': 1, 't': 1, 'u': 1, 'd': 2, 'g': 2, 'm': 2, 'b': 3, 'c': 3, 'p': 3, 'f': 4, 'h': 4, 'v': 4, 'j': 8, 'q': 8, 'k': 10, 'w': 10, 'x': 10, 'y': 10, 'z': 10}
@@ -36,11 +36,11 @@ def max_score(potential_solutions):
     list_scores = score(potential_solutions)
     maximum = list_scores[0]
     word_max = potential_solutions[0]
-    for i in range(len(list_scores)):
+    for score_index in range(len(list_scores)):
 #max renvoie la valeur max de tous les mots faisables
-        if maximum < list_scores[i]:
-            maximum = list_scores[i]
-            word_max = potential_solutions[i]
+        if maximum < list_scores[score_index]:
+            maximum = list_scores[score_index]
+            word_max = potential_solutions[score_index]
     return word_max, maximum
 
 a=search_longer_word(['a', 'r', 'b', 'g', 'e', 's', 'c', 'j'])
