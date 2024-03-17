@@ -5,7 +5,7 @@ Created on Wed Mar 13 10:01:55 2024
 @author: chris
 """
 
-def searchlongerword(selection):
+def search_longer_word(selection):
     words=list()
     potential_solutions = list()
     solution = list()
@@ -33,6 +33,6 @@ def searchlongerword(selection):
     for k in range(len(potential_solutions)):
         if len(potential_solutions[k]) > len(solution):
             solution = potential_solutions[k]
-    print('potential_solutions')
     print('the longer word in dictionay with the letter selection is : ', solution)
+    return None
     
