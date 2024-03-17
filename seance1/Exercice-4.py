@@ -23,11 +23,15 @@ def search_longer_word(selection):
                 potential_solutions.append((words[word_index],joker))
         if len(word)==0:
             potential_solutions.append((words[word_index],joker))
-#on retourne une liste tuple (mot,joker) avec joker = 0 (pas de '?') ou la lettre remplacee par '?'
+#on retourne une liste tuple (mot,joker) avec joker = 0 (pas de '?') ou la 
+#lettre remplacee par '?'
     return potential_solutions
 
 
-value_letters = {'a': 1, 'e': 1, 'i': 1, 'l': 1, 'n': 1, 'o': 1, 'r': 1, 's': 1, 't': 1, 'u': 1, 'd': 2, 'g': 2, 'm': 2, 'b': 3, 'c': 3, 'p': 3, 'f': 4, 'h': 4, 'v': 4, 'j': 8, 'q': 8, 'k': 10, 'w': 10, 'x': 10, 'y': 10, 'z': 10}
+value_letters = {'a': 1, 'e': 1, 'i': 1, 'l': 1, 'n': 1, 'o': 1, 'r': 1, 
+                 's': 1, 't': 1, 'u': 1, 'd': 2, 'g': 2, 'm': 2, 'b': 3, 
+                 'c': 3, 'p': 3, 'f': 4, 'h': 4, 'v': 4, 'j': 8, 'q': 8, 
+                 'k': 10, 'w': 10, 'x': 10, 'y': 10, 'z': 10}
 def score(potential_solutions):
     list_scores=list()
     for word in potential_solutions:
