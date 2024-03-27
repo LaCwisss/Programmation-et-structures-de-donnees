@@ -20,7 +20,10 @@ class Tree:
         return count
     
     def child(self, i: int):
-        return 
+        return self.children()[i]
+    
+    def is_leaf(self):
+        return self.nb_children1()==0 
         
 if __name__=='__main__':
     t1=Tree('a')
@@ -31,4 +34,5 @@ if __name__=='__main__':
     t3 = Tree('a',Tree('b'),Tree('c',Tree('d')))
     print(t3.nb_children1())
     print(t3.nb_children2())
-    
+    print(t3.child(1))
+    print(t1.is_leaf())
